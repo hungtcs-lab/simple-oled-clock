@@ -136,39 +136,39 @@ void oled_put_chars_8x16(uint8_t x, uint8_t y, const char *characters)
   }
 }
 
-// void oled_put_char_16x16(uint8_t x, uint8_t y, char character)
-// {
-//   uint8_t i;
+void oled_put_char_16x16(uint8_t x, uint8_t y, char character)
+{
+  uint8_t i;
 
-//   // set page
-//   oled_send_command(0x22);
-//   oled_send_command(y);
-//   oled_send_command(0x01 + y);
-//   // set column
-//   oled_send_command(0x21);
-//   oled_send_command(0x10 * x);
-//   oled_send_command(0x10 * x + 0x0F);
+  // set page
+  oled_send_command(0x22);
+  oled_send_command(y);
+  oled_send_command(0x01 + y);
+  // set column
+  oled_send_command(0x21);
+  oled_send_command(0x10 * x);
+  oled_send_command(0x10 * x + 0x0F);
 
-//   for(i=0; i<32; i++)
-//   {
-//     oled_send_data(CHARACTERS_16X16[character - 48][i]);
-//   }
-// }
+  for(i=0; i<32; i++)
+  {
+    oled_send_data(CHARACTERS_16X16[character - 48][i]);
+  }
+}
 
-// void oled_put_chars_16x16(uint8_t x, uint8_t y, const char *characters)
-// {
-//   uint8_t i;
-//   for(i=0; *(characters+i)!='\0'; i++)
-//   {
-//     // 自动换行
-//     if(x + 1 > (OLED_WIDTH / 16))
-//     {
-//       y += 2;
-//       x = 0;
-//     }
-//     oled_put_char_16x16(x++, y, *(characters+i));
-//   }
-// }
+void oled_put_chars_16x16(uint8_t x, uint8_t y, const char *characters)
+{
+  uint8_t i;
+  for(i=0; *(characters+i)!='\0'; i++)
+  {
+    // 自动换行
+    if(x + 1 > (OLED_WIDTH / 16))
+    {
+      y += 2;
+      x = 0;
+    }
+    oled_put_char_16x16(x++, y, *(characters+i));
+  }
+}
 
 void oled_put_char_16x32(uint8_t x, uint8_t y, char character)
 {

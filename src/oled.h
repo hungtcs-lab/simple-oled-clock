@@ -20,8 +20,8 @@ void oled_clear(void);
 void oled_put_char_8x16(uint8_t x, uint8_t y, char character);
 void oled_put_chars_8x16(uint8_t x, uint8_t y, const char *characters);
 
-// void oled_put_char_16x16(uint8_t x, uint8_t y, char character);
-// void oled_put_chars_16x16(uint8_t x, uint8_t y, const char *characters);
+void oled_put_char_16x16(uint8_t x, uint8_t y, char character);
+void oled_put_chars_16x16(uint8_t x, uint8_t y, const char *characters);
 
 void oled_put_char_16x32(uint8_t x, uint8_t y, char character);
 void oled_put_chars_16x32(uint8_t x, uint8_t y, const char *characters);
